@@ -1,93 +1,584 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pact</title>
-    <meta name="description" content="Pact support and contact information.">
-    <link rel="icon" href="/assets/icon.png" type="image/png">
-    <link rel="stylesheet" href="/assets/styles.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Pact is a screen time lock that helps you block distracting apps, build healthier habits, and use it only until you no longer need it."
+    />
+    <meta name="apple-itunes-app" content="app-id=6768125792" />
+    <meta property="og:title" content="Pact: Screen Time Lock" />
+    <meta
+      property="og:description"
+      content="Block distracting apps, build healthier screen time habits, and track your progress with Pact."
+    />
+    <meta property="og:image" content="assets/pact-home.png" />
+    <meta property="og:type" content="website" />
+    <title>Pact: Screen Time Lock</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #111515;
+        --muted: #5f6b6b;
+        --teal: #069fb0;
+        --teal-dark: #087f8c;
+        --cream: #fffaf2;
+        --paper: #ffffff;
+        --line: rgba(17, 21, 21, 0.12);
+        --shadow: 0 24px 70px rgba(16, 37, 39, 0.14);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(6, 159, 176, 0.13), transparent 34rem),
+          linear-gradient(180deg, #fffdf8 0%, #f4fbfb 56%, #ffffff 100%);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        overflow: hidden;
+      }
+
+      .nav,
+      .hero,
+      .section,
+      .footer {
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 22px 0;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+        font-size: 1.25rem;
+        letter-spacing: 0;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        color: #fff;
+        background: linear-gradient(135deg, #0bb8c6, #0a7d88);
+        box-shadow: 0 10px 26px rgba(6, 159, 176, 0.24);
+      }
+
+      .brand-mark svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .nav-cta,
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        border-radius: 999px;
+        font-weight: 800;
+        text-decoration: none;
+        transition:
+          transform 160ms ease,
+          box-shadow 160ms ease,
+          background 160ms ease;
+      }
+
+      .nav-cta {
+        padding: 0 18px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.78);
+        backdrop-filter: blur(14px);
+      }
+
+      .button {
+        padding: 0 24px;
+        color: #fff;
+        background: linear-gradient(135deg, #0a9faf, #066c78);
+        box-shadow: 0 18px 42px rgba(6, 159, 176, 0.28);
+      }
+
+      .button.secondary {
+        color: var(--ink);
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid var(--line);
+        box-shadow: none;
+      }
+
+      .nav-cta:hover,
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(340px, 0.78fr);
+        gap: 52px;
+        align-items: center;
+        min-height: calc(100svh - 92px);
+        padding: 34px 0 72px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 18px;
+        padding: 8px 12px;
+        border: 1px solid rgba(6, 159, 176, 0.18);
+        border-radius: 999px;
+        color: var(--teal-dark);
+        background: rgba(255, 255, 255, 0.74);
+        font-size: 0.9rem;
+        font-weight: 800;
+      }
+
+      h1 {
+        max-width: 760px;
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(3.25rem, 7vw, 6.9rem);
+        line-height: 0.93;
+        letter-spacing: 0;
+      }
+
+      .accent {
+        color: var(--teal);
+      }
+
+      .hero-copy {
+        max-width: 620px;
+        margin: 24px 0 0;
+        color: var(--muted);
+        font-size: clamp(1.1rem, 2vw, 1.32rem);
+        line-height: 1.55;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 34px;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        max-width: 650px;
+        margin-top: 34px;
+      }
+
+      .metric,
+      .feature,
+      .quote {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(16px);
+      }
+
+      .metric {
+        padding: 16px;
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 1.35rem;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.35;
+      }
+
+      .phone-art {
+        position: relative;
+        isolation: isolate;
+      }
+
+      .phone-art::before {
+        content: "";
+        position: absolute;
+        inset: 9% -10% 4% 2%;
+        z-index: -1;
+        border-radius: 36px;
+        background: linear-gradient(135deg, rgba(6, 159, 176, 0.13), rgba(231, 179, 112, 0.18));
+        filter: blur(2px);
+        transform: rotate(-5deg);
+      }
+
+      .promo-image {
+        display: block;
+        width: min(100%, 420px);
+        max-height: 76svh;
+        margin: 0 auto;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 28px;
+        box-shadow: var(--shadow);
+      }
+
+      .section {
+        padding: 74px 0;
+      }
+
+      .section-header {
+        max-width: 720px;
+        margin-bottom: 28px;
+      }
+
+      .section h2 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.2rem, 4vw, 4rem);
+        line-height: 1.02;
+      }
+
+      .section p {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .feature {
+        padding: 24px;
+      }
+
+      .feature-icon {
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        margin-bottom: 18px;
+        border-radius: 12px;
+        color: #fff;
+        background: var(--teal);
+      }
+
+      .feature h3 {
+        margin: 0 0 10px;
+        font-size: 1.15rem;
+      }
+
+      .feature p {
+        margin: 0;
+      }
+
+      .proof {
+        display: grid;
+        grid-template-columns: 0.86fr 1.14fr;
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .proof-image {
+        width: 100%;
+        height: 100%;
+        min-height: 460px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .quote {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 34px;
+      }
+
+      .quote p {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        color: var(--ink);
+        font-size: clamp(1.8rem, 3vw, 3rem);
+        line-height: 1.12;
+      }
+
+      .quote span {
+        display: block;
+        margin-top: 22px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .final-cta {
+        width: min(1120px, calc(100% - 40px));
+        margin: 56px auto;
+        padding: 46px;
+        border-radius: 8px;
+        color: #fff;
+        background:
+          linear-gradient(rgba(4, 50, 55, 0.72), rgba(4, 50, 55, 0.72)),
+          url("assets/pact-block-apps.png") center / cover;
+      }
+
+      .final-cta h2 {
+        max-width: 760px;
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.3rem, 4vw, 4.4rem);
+        line-height: 1.02;
+      }
+
+      .final-cta p {
+        max-width: 560px;
+        margin: 18px 0 28px;
+        color: rgba(255, 255, 255, 0.84);
+        font-size: 1.12rem;
+        line-height: 1.55;
+      }
+
+      .final-cta .button {
+        color: var(--ink);
+        background: #fff;
+        box-shadow: none;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 28px 0 42px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 860px) {
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 34px;
+          min-height: auto;
+          padding-top: 22px;
+        }
+
+        .phone-art {
+          order: -1;
+        }
+
+        .promo-image {
+          width: min(100%, 360px);
+          max-height: 58svh;
+        }
+
+        .metrics,
+        .features,
+        .proof {
+          grid-template-columns: 1fr;
+        }
+
+        .proof-image {
+          min-height: 360px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .nav,
+        .hero,
+        .section,
+        .footer,
+        .final-cta {
+          width: min(100% - 28px, 1120px);
+        }
+
+        .nav {
+          padding-top: 14px;
+        }
+
+        .brand {
+          font-size: 1.05rem;
+        }
+
+        .brand-mark {
+          width: 38px;
+          height: 38px;
+        }
+
+        .nav-cta {
+          min-height: 40px;
+          padding: 0 14px;
+          font-size: 0.9rem;
+        }
+
+        h1 {
+          font-size: clamp(3rem, 16vw, 4.5rem);
+        }
+
+        .hero-copy {
+          font-size: 1.04rem;
+        }
+
+        .hero-actions .button {
+          width: 100%;
+        }
+
+        .metrics {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 50px 0;
+        }
+
+        .feature,
+        .quote,
+        .final-cta {
+          padding: 24px;
+        }
+
+        .final-cta {
+          margin: 28px auto;
+        }
+
+        .footer {
+          flex-direction: column;
+          padding-bottom: 28px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="Pact home">
-        <img class="brand-mark" src="/assets/icon.png" alt="" width="40" height="40">
-        <span>Pact</span>
-      </a>
+    <main class="page">
       <nav class="nav" aria-label="Main navigation">
-        <a href="/support/">Support</a>
+        <a class="brand" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" role="img">
+              <path
+                d="M19.6 5.3c-5.2.1-9.3 1.6-12.2 4.5-2.8 2.8-3.4 6.1-2.3 8.8 3.5-5.5 8.1-7.3 12.7-7.8-4.3 1.4-7.8 3.9-10.2 8.1 2.4 1.4 5.7 1.1 8.4-1.2 3.2-2.8 4.6-7.2 3.6-12.4Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <span>Pact</span>
+        </a>
+        <a class="nav-cta" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">Open App</a>
       </nav>
-    </header>
 
-    <main>
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">App support</p>
-          <h1>Built to help you focus, then get out of your way.</h1>
-          <p class="lede">
-            Pact helps you set real screen time limits, build better habits,
-            and keep momentum without loopholes. If something needs attention,
-            support is one email away.
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">Pact: Screen Time Lock</p>
+          <h1 id="hero-title">Block apps. <span class="accent">Build better habits.</span></h1>
+          <p class="hero-copy">
+            Pact helps you set real limits for distracting apps, understand your screen time, and stay focused
+            without turning self-control into another chore.
           </p>
-          <div class="actions">
-            <a class="button primary" href="/support/">Get Support</a>
-            <a class="button secondary" href="mailto:privacy.pactapp@gmail.com?subject=Pact%20Feedback">Send Feedback</a>
+          <div class="hero-actions">
+            <a class="button" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">Open on the App Store</a>
+            <a class="button secondary" href="#how-it-works">See how it works</a>
+          </div>
+          <div class="metrics" aria-label="Product highlights">
+            <div class="metric">
+              <strong>Strict mode</strong>
+              <span>Protect goals from quick edits and loopholes.</span>
+            </div>
+            <div class="metric">
+              <strong>Mindful mode</strong>
+              <span>Pause, reflect, then choose with intention.</span>
+            </div>
+            <div class="metric">
+              <strong>Progress</strong>
+              <span>Track the habits that matter at a glance.</span>
+            </div>
           </div>
         </div>
-        <div class="hero-panel" aria-label="Pact app preview">
-          <div class="device-shell">
-            <div class="device-top"></div>
-            <div class="screen-card">
-              <img src="/assets/icon.png" alt="" width="58" height="58">
-              <p>Lock In</p>
-              <strong>25m</strong>
-              <span>Hard Lock mode</span>
-            </div>
-            <div class="screen-stat">
-              <span>Today</span>
-              <strong>80</strong>
-              <small>Locked in</small>
-            </div>
-            <div class="screen-list">
-              <span>Limited apps</span>
-              <p>Instagram</p>
-              <p>TikTok</p>
-              <p>YouTube</p>
-            </div>
-          </div>
+        <div class="phone-art" aria-label="Pact app preview">
+          <img
+            class="promo-image"
+            src="assets/pact-home.png"
+            alt="Pact app home screen showing screen time insights and habit progress"
+          />
         </div>
       </section>
 
-      <section class="content-band">
-        <div class="split">
-          <article>
-            <p class="section-label">Support</p>
-            <h2>Need help with Pact?</h2>
-            <p>
-              Reach us for app issues, account questions, feedback, or feature
-              requests. We will use your message only to understand and respond
-              to your request.
-            </p>
-            <a class="text-link" href="mailto:privacy.pactapp@gmail.com">privacy.pactapp@gmail.com</a>
+      <section class="section" id="how-it-works">
+        <div class="section-header">
+          <h2>Designed for accountability, not guilt.</h2>
+          <p>
+            Pact makes the default path easier: block the apps that pull you off course, review your progress,
+            and remove the tool once the habit is strong.
+          </p>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">01</div>
+            <h3>Choose what gets blocked</h3>
+            <p>Pick the apps and sessions that need boundaries, then decide how firm those boundaries should be.</p>
           </article>
-          <article>
-            <p class="section-label">Launch URL</p>
-            <h2>Ready for App Store Connect.</h2>
-            <p>
-              Use this support page in App Store Connect. It is fast,
-              mobile-friendly, and styled to match Pact's app presence.
-            </p>
-            <div class="url-list">
-              <code>https://pactapp.tech/support</code>
-            </div>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">02</div>
+            <h3>Reduce impulse opens</h3>
+            <p>Mindful Mode gives you a moment to reconsider. Strict mode helps protect the promise you made.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">03</div>
+            <h3>Watch the habit improve</h3>
+            <p>Simple insights show usage, check-ins, and overrides so progress is visible without extra work.</p>
           </article>
         </div>
       </section>
+
+      <section class="section proof" aria-label="Pact progress preview">
+        <img
+          class="proof-image"
+          src="assets/pact-activity.png"
+          alt="Pact activity screen showing a progress score and weekly check-ins"
+        />
+        <div class="quote">
+          <p>Real limits for the apps that steal attention.</p>
+          <span>
+            Built for people who want a practical screen time lock: clear setup, visible progress, and a product
+            philosophy simple enough to trust.
+          </span>
+        </div>
+      </section>
+
+      <section class="final-cta" aria-labelledby="download-title">
+        <h2 id="download-title">Start with one app you want back from your day.</h2>
+        <p>
+          Open Pact on the App Store and set your first boundary in minutes. Use it until the habit sticks.
+        </p>
+        <a class="button" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">Open Pact</a>
+      </section>
+
+      <footer class="footer">
+        <span>© 2026 Pact</span>
+        <a href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">apps.apple.com</a>
+      </footer>
     </main>
-
-    <footer class="site-footer">
-      <span>&copy; 2026 Pact. All rights reserved.</span>
-      <a href="mailto:privacy.pactapp@gmail.com">privacy.pactapp@gmail.com</a>
-    </footer>
   </body>
 </html>
