@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Pact is a screen time lock that helps you block distracting apps, build healthier habits, and use it only until you no longer need it."
+      content="Pact is a screen time lock that helps people block distracting apps, build healthier habits, and understand their progress."
     />
     <meta name="apple-itunes-app" content="app-id=6768125792" />
     <meta property="og:title" content="Pact: Screen Time Lock" />
     <meta
       property="og:description"
-      content="Block distracting apps, build healthier screen time habits, and track your progress with Pact."
+      content="A calmer screen time lock for real app limits, mindful pauses, and visible progress."
     />
     <meta property="og:image" content="assets/pact-home.png" />
     <meta property="og:type" content="website" />
@@ -19,36 +19,61 @@
     <style>
       :root {
         color-scheme: light;
-        --ink: #111515;
-        --muted: #5f6b6b;
-        --teal: #069fb0;
-        --teal-dark: #087f8c;
-        --cream: #fffaf2;
-        --paper: #ffffff;
-        --line: rgba(17, 21, 21, 0.12);
-        --shadow: 0 24px 70px rgba(16, 37, 39, 0.14);
+        --ink: #121616;
+        --muted: #5e6969;
+        --soft: #eef7f6;
+        --paper: #fffdf8;
+        --card: rgba(255, 255, 255, 0.82);
+        --line: rgba(18, 22, 22, 0.1);
+        --teal: #079dad;
+        --teal-deep: #06717c;
+        --gold: #c9813d;
+        --shadow: 0 22px 60px rgba(22, 44, 46, 0.12);
+        --display: Georgia, "Times New Roman", serif;
+        --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+        background: var(--paper);
+      }
+
       body {
         margin: 0;
-        font-family:
-          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", sans-serif;
         color: var(--ink);
+        font-family: var(--sans);
         background:
-          radial-gradient(circle at top left, rgba(6, 159, 176, 0.13), transparent 34rem),
-          linear-gradient(180deg, #fffdf8 0%, #f4fbfb 56%, #ffffff 100%);
+          radial-gradient(circle at 8% 5%, rgba(7, 157, 173, 0.12), transparent 28rem),
+          radial-gradient(circle at 88% 12%, rgba(201, 129, 61, 0.1), transparent 24rem),
+          linear-gradient(180deg, #fffdf8 0%, #f5fbfb 52%, #ffffff 100%);
+      }
+
+      body::before {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        content: "";
+        background-image:
+          linear-gradient(rgba(18, 22, 22, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(18, 22, 22, 0.035) 1px, transparent 1px);
+        background-size: 72px 72px;
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 70%);
       }
 
       a {
         color: inherit;
       }
 
-      .page {
+      img {
+        max-width: 100%;
+      }
+
+      .shell {
         overflow: hidden;
       }
 
@@ -56,7 +81,7 @@
       .hero,
       .section,
       .footer {
-        width: min(1120px, calc(100% - 40px));
+        width: min(1160px, calc(100% - 40px));
         margin: 0 auto;
       }
 
@@ -68,204 +93,243 @@
         padding: 22px 0;
       }
 
+      .brand,
+      .nav-links,
+      .hero-actions,
+      .proof-row {
+        display: flex;
+        align-items: center;
+      }
+
       .brand {
-        display: inline-flex;
-        align-items: center;
         gap: 12px;
+        font-family: var(--display);
+        font-size: 1.65rem;
         font-weight: 800;
-        font-size: 1.25rem;
-        letter-spacing: 0;
         text-decoration: none;
       }
 
-      .brand-mark {
-        display: grid;
-        place-items: center;
-        width: 42px;
-        height: 42px;
+      .brand img {
+        width: 40px;
+        height: 40px;
         border-radius: 12px;
-        color: #fff;
-        background: linear-gradient(135deg, #0bb8c6, #0a7d88);
-        box-shadow: 0 10px 26px rgba(6, 159, 176, 0.24);
+        box-shadow: 0 12px 26px rgba(7, 157, 173, 0.2);
       }
 
-      .brand-mark svg {
-        width: 24px;
-        height: 24px;
+      .nav-links {
+        gap: 8px;
       }
 
-      .nav-cta,
-      .button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 46px;
+      .nav-links a {
+        min-height: 42px;
+        padding: 11px 16px;
+        border: 1px solid transparent;
         border-radius: 999px;
+        color: #3f4a4a;
+        font-size: 0.94rem;
         font-weight: 800;
         text-decoration: none;
-        transition:
-          transform 160ms ease,
-          box-shadow 160ms ease,
-          background 160ms ease;
       }
 
-      .nav-cta {
-        padding: 0 18px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.78);
-        backdrop-filter: blur(14px);
+      .nav-links a:hover {
+        border-color: var(--line);
+        background: rgba(255, 255, 255, 0.72);
       }
 
-      .button {
-        padding: 0 24px;
+      .nav-links .download {
         color: #fff;
-        background: linear-gradient(135deg, #0a9faf, #066c78);
-        box-shadow: 0 18px 42px rgba(6, 159, 176, 0.28);
-      }
-
-      .button.secondary {
-        color: var(--ink);
-        background: rgba(255, 255, 255, 0.82);
-        border: 1px solid var(--line);
-        box-shadow: none;
-      }
-
-      .nav-cta:hover,
-      .button:hover {
-        transform: translateY(-1px);
+        background: var(--ink);
       }
 
       .hero {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(340px, 0.78fr);
-        gap: 52px;
+        grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.78fr);
+        gap: 64px;
         align-items: center;
-        min-height: calc(100svh - 92px);
-        padding: 34px 0 72px;
+        min-height: calc(100svh - 86px);
+        padding: 34px 0 86px;
       }
 
       .eyebrow {
         display: inline-flex;
-        align-items: center;
-        gap: 8px;
+        width: fit-content;
         margin: 0 0 18px;
         padding: 8px 12px;
-        border: 1px solid rgba(6, 159, 176, 0.18);
+        border: 1px solid rgba(7, 157, 173, 0.18);
         border-radius: 999px;
-        color: var(--teal-dark);
-        background: rgba(255, 255, 255, 0.74);
-        font-size: 0.9rem;
-        font-weight: 800;
+        color: var(--teal-deep);
+        background: rgba(255, 255, 255, 0.72);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1,
+      h2 {
+        font-family: var(--display);
+        letter-spacing: 0;
       }
 
       h1 {
-        max-width: 760px;
-        margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(3.25rem, 7vw, 6.9rem);
-        line-height: 0.93;
-        letter-spacing: 0;
+        max-width: 680px;
+        margin-bottom: 22px;
+        font-size: clamp(3.55rem, 6.2vw, 6.25rem);
+        line-height: 0.94;
+      }
+
+      h2 {
+        margin-bottom: 16px;
+        font-size: clamp(2.15rem, 4vw, 4.1rem);
+        line-height: 1.02;
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 1.15rem;
       }
 
       .accent {
         color: var(--teal);
       }
 
-      .hero-copy {
+      .lede {
         max-width: 620px;
-        margin: 24px 0 0;
+        margin-bottom: 0;
         color: var(--muted);
-        font-size: clamp(1.1rem, 2vw, 1.32rem);
-        line-height: 1.55;
+        font-size: clamp(1.08rem, 1.8vw, 1.28rem);
+        line-height: 1.62;
       }
 
       .hero-actions {
-        display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        margin-top: 34px;
+        margin-top: 32px;
       }
 
-      .metrics {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 12px;
-        max-width: 650px;
-        margin-top: 34px;
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        padding: 0 22px;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        font-weight: 900;
+        text-decoration: none;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          background 180ms ease;
       }
 
-      .metric,
-      .feature,
-      .quote {
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .button.primary {
+        color: #fff;
+        background: linear-gradient(135deg, var(--teal), var(--teal-deep));
+        box-shadow: 0 18px 38px rgba(7, 157, 173, 0.24);
+      }
+
+      .button.secondary {
+        color: var(--ink);
+        background: rgba(255, 255, 255, 0.76);
+        border-color: var(--line);
+      }
+
+      .proof-row {
+        flex-wrap: wrap;
+        gap: 18px;
+        margin-top: 34px;
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .proof-row strong {
+        display: block;
+        color: var(--ink);
+        font-size: 1.08rem;
+      }
+
+      .hero-visual {
+        position: relative;
+        min-height: 590px;
+      }
+
+      .hero-card {
+        position: absolute;
+        inset: 18px 0 auto auto;
+        width: min(100%, 430px);
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.84);
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
+      }
+
+      .hero-card img {
+        display: block;
+        width: 100%;
+        max-height: 540px;
+        border-radius: 22px;
+        object-fit: contain;
+        background: #fffdf8;
+      }
+
+      .floating-card {
+        position: absolute;
+        left: 0;
+        bottom: 56px;
+        width: min(330px, 70%);
+        padding: 20px;
         border: 1px solid var(--line);
         border-radius: 8px;
-        background: rgba(255, 255, 255, 0.72);
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 18px 48px rgba(18, 22, 22, 0.1);
         backdrop-filter: blur(16px);
       }
 
-      .metric {
-        padding: 16px;
+      .floating-card span {
+        color: var(--teal-deep);
+        font-size: 0.8rem;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
       }
 
-      .metric strong {
-        display: block;
-        font-size: 1.35rem;
-      }
-
-      .metric span {
-        display: block;
-        margin-top: 5px;
-        color: var(--muted);
-        font-size: 0.92rem;
-        line-height: 1.35;
-      }
-
-      .phone-art {
-        position: relative;
-        isolation: isolate;
-      }
-
-      .phone-art::before {
-        content: "";
-        position: absolute;
-        inset: 9% -10% 4% 2%;
-        z-index: -1;
-        border-radius: 36px;
-        background: linear-gradient(135deg, rgba(6, 159, 176, 0.13), rgba(231, 179, 112, 0.18));
-        filter: blur(2px);
-        transform: rotate(-5deg);
-      }
-
-      .promo-image {
-        display: block;
-        width: min(100%, 420px);
-        max-height: 76svh;
-        margin: 0 auto;
-        object-fit: cover;
-        object-position: center;
-        border-radius: 28px;
-        box-shadow: var(--shadow);
+      .floating-card p {
+        margin: 8px 0 0;
+        color: var(--ink);
+        font-family: var(--display);
+        font-size: 1.8rem;
+        line-height: 1.05;
       }
 
       .section {
-        padding: 74px 0;
+        padding: 84px 0;
       }
 
       .section-header {
-        max-width: 720px;
-        margin-bottom: 28px;
+        max-width: 760px;
+        margin-bottom: 30px;
       }
 
-      .section h2 {
-        margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(2.2rem, 4vw, 4rem);
-        line-height: 1.02;
-      }
-
-      .section p {
+      .section-header p,
+      .feature p,
+      .investor-copy p,
+      .quote span {
         color: var(--muted);
-        line-height: 1.6;
+        line-height: 1.66;
       }
 
       .features {
@@ -274,172 +338,255 @@
         gap: 16px;
       }
 
+      .feature,
+      .investor-copy,
+      .quote {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--card);
+        backdrop-filter: blur(16px);
+      }
+
       .feature {
         padding: 24px;
       }
 
-      .feature-icon {
+      .feature-number {
         display: grid;
         place-items: center;
-        width: 44px;
-        height: 44px;
+        width: 42px;
+        height: 42px;
         margin-bottom: 18px;
         border-radius: 12px;
         color: #fff;
         background: var(--teal);
+        font-weight: 900;
       }
 
-      .feature h3 {
-        margin: 0 0 10px;
-        font-size: 1.15rem;
-      }
-
-      .feature p {
-        margin: 0;
-      }
-
-      .proof {
+      .investor-section {
         display: grid;
-        grid-template-columns: 0.86fr 1.14fr;
+        grid-template-columns: 0.92fr 1.08fr;
         gap: 28px;
-        align-items: stretch;
+        align-items: center;
       }
 
-      .proof-image {
+      .investor-image {
+        display: block;
         width: 100%;
-        height: 100%;
-        min-height: 460px;
-        object-fit: cover;
-        object-position: center;
+        max-height: 640px;
         border-radius: 8px;
+        object-fit: contain;
+        background: rgba(255, 255, 255, 0.68);
         box-shadow: var(--shadow);
       }
 
+      .investor-copy {
+        padding: 36px;
+      }
+
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .stat {
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.2rem;
+      }
+
+      .stat span {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.35;
+      }
+
       .quote {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 34px;
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.7fr);
+        gap: 36px;
+        align-items: center;
+        padding: 36px;
       }
 
       .quote p {
-        margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
-        color: var(--ink);
-        font-size: clamp(1.8rem, 3vw, 3rem);
-        line-height: 1.12;
+        margin-bottom: 0;
+        font-family: var(--display);
+        font-size: clamp(2rem, 3.6vw, 4rem);
+        line-height: 1.03;
       }
 
-      .quote span {
-        display: block;
-        margin-top: 22px;
-        color: var(--muted);
-        line-height: 1.55;
+      .quote img {
+        width: 100%;
+        max-height: 520px;
+        border-radius: 8px;
+        object-fit: contain;
       }
 
       .final-cta {
-        width: min(1120px, calc(100% - 40px));
-        margin: 56px auto;
-        padding: 46px;
+        width: min(1160px, calc(100% - 40px));
+        margin: 48px auto 58px;
+        padding: 48px;
         border-radius: 8px;
         color: #fff;
         background:
-          linear-gradient(rgba(4, 50, 55, 0.72), rgba(4, 50, 55, 0.72)),
+          linear-gradient(120deg, rgba(5, 41, 45, 0.93), rgba(5, 76, 84, 0.82)),
           url("assets/pact-block-apps.png") center / cover;
+        box-shadow: 0 28px 70px rgba(5, 41, 45, 0.2);
       }
 
       .final-cta h2 {
-        max-width: 760px;
-        margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(2.3rem, 4vw, 4.4rem);
-        line-height: 1.02;
+        max-width: 740px;
+        margin-bottom: 18px;
       }
 
       .final-cta p {
         max-width: 560px;
-        margin: 18px 0 28px;
+        margin-bottom: 28px;
         color: rgba(255, 255, 255, 0.84);
-        font-size: 1.12rem;
-        line-height: 1.55;
+        line-height: 1.62;
       }
 
       .final-cta .button {
         color: var(--ink);
         background: #fff;
-        box-shadow: none;
       }
 
       .footer {
         display: flex;
         justify-content: space-between;
         gap: 18px;
-        padding: 28px 0 42px;
+        padding: 28px 0 44px;
         color: var(--muted);
-        font-size: 0.95rem;
+        font-size: 0.94rem;
       }
 
-      @media (max-width: 860px) {
-        .hero {
+      .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+
+      .reveal.is-visible {
+        animation: revealUp 760ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        animation-delay: var(--delay, 0ms);
+      }
+
+      .hero-card {
+        animation: visualFloat 7s ease-in-out infinite;
+      }
+
+      @keyframes revealUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes visualFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .reveal,
+        .reveal.is-visible,
+        .hero-card {
+          opacity: 1;
+          transform: none;
+          animation: none;
+        }
+
+        .button {
+          transition: none;
+        }
+      }
+
+      @media (max-width: 940px) {
+        .hero,
+        .investor-section,
+        .quote {
           grid-template-columns: 1fr;
+        }
+
+        .hero {
           gap: 34px;
           min-height: auto;
-          padding-top: 22px;
+          padding-top: 18px;
         }
 
-        .phone-art {
-          order: -1;
+        .hero-visual {
+          min-height: auto;
         }
 
-        .promo-image {
-          width: min(100%, 360px);
-          max-height: 58svh;
+        .hero-card,
+        .floating-card {
+          position: relative;
         }
 
-        .metrics,
+        .hero-card {
+          inset: auto;
+          margin: 0 auto;
+        }
+
+        .floating-card {
+          left: auto;
+          bottom: auto;
+          width: min(100%, 430px);
+          margin: -26px auto 0;
+        }
+
         .features,
-        .proof {
+        .stat-grid {
           grid-template-columns: 1fr;
-        }
-
-        .proof-image {
-          min-height: 360px;
         }
       }
 
-      @media (max-width: 560px) {
+      @media (max-width: 600px) {
         .nav,
         .hero,
         .section,
         .footer,
         .final-cta {
-          width: min(100% - 28px, 1120px);
+          width: min(100% - 28px, 1160px);
         }
 
         .nav {
-          padding-top: 14px;
+          padding: 16px 0;
         }
 
         .brand {
-          font-size: 1.05rem;
+          font-size: 1.35rem;
         }
 
-        .brand-mark {
-          width: 38px;
-          height: 38px;
-        }
-
-        .nav-cta {
-          min-height: 40px;
-          padding: 0 14px;
-          font-size: 0.9rem;
+        .nav-links a:not(.download) {
+          display: none;
         }
 
         h1 {
-          font-size: clamp(3rem, 16vw, 4.5rem);
+          font-size: clamp(3rem, 15vw, 4.7rem);
         }
 
-        .hero-copy {
+        .lede {
           font-size: 1.04rem;
         }
 
@@ -447,138 +594,195 @@
           width: 100%;
         }
 
-        .metrics {
-          grid-template-columns: 1fr;
+        .hero-card {
+          padding: 10px;
+          border-radius: 22px;
+        }
+
+        .hero-card img {
+          max-height: 450px;
+          border-radius: 16px;
         }
 
         .section {
-          padding: 50px 0;
+          padding: 54px 0;
         }
 
-        .feature,
+        .investor-copy,
         .quote,
         .final-cta {
           padding: 24px;
         }
 
         .final-cta {
-          margin: 28px auto;
+          margin: 30px auto;
         }
 
         .footer {
           flex-direction: column;
-          padding-bottom: 28px;
         }
       }
     </style>
   </head>
   <body>
-    <main class="page">
+    <main class="shell">
       <nav class="nav" aria-label="Main navigation">
-        <a class="brand" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">
-          <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" role="img">
-              <path
-                d="M19.6 5.3c-5.2.1-9.3 1.6-12.2 4.5-2.8 2.8-3.4 6.1-2.3 8.8 3.5-5.5 8.1-7.3 12.7-7.8-4.3 1.4-7.8 3.9-10.2 8.1 2.4 1.4 5.7 1.1 8.4-1.2 3.2-2.8 4.6-7.2 3.6-12.4Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
+        <a class="brand" href="/" aria-label="Pact home">
+          <img src="assets/icon.png" alt="" width="40" height="40" />
           <span>Pact</span>
         </a>
-        <a class="nav-cta" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">Open App</a>
+        <div class="nav-links">
+          <a href="#product">Product</a>
+          <a href="/support/">Support</a>
+          <a class="download" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">Open App</a>
+        </div>
       </nav>
 
       <section class="hero" aria-labelledby="hero-title">
         <div>
-          <p class="eyebrow">Pact: Screen Time Lock</p>
-          <h1 id="hero-title">Block apps. <span class="accent">Build better habits.</span></h1>
-          <p class="hero-copy">
-            Pact helps you set real limits for distracting apps, understand your screen time, and stay focused
-            without turning self-control into another chore.
+          <p class="eyebrow reveal is-visible">Pact: Screen Time Lock</p>
+          <h1 id="hero-title" class="reveal is-visible" style="--delay: 90ms">
+            Screen time, <span class="accent">locked.</span>
+          </h1>
+          <p class="lede reveal is-visible" style="--delay: 180ms">
+            Pact helps people turn app limits into lasting habits with strict blocks, mindful pauses, and progress
+            that is easy to understand.
           </p>
-          <div class="hero-actions">
-            <a class="button" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">Open on the App Store</a>
-            <a class="button secondary" href="#how-it-works">See how it works</a>
+          <div class="hero-actions reveal is-visible" style="--delay: 270ms">
+            <a class="button primary" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">
+              Open on the App Store
+            </a>
+            <a class="button secondary" href="#product">See the product</a>
           </div>
-          <div class="metrics" aria-label="Product highlights">
-            <div class="metric">
-              <strong>Strict mode</strong>
-              <span>Protect goals from quick edits and loopholes.</span>
+          <div class="proof-row reveal is-visible" style="--delay: 360ms" aria-label="Product highlights">
+            <span><strong>Strict mode</strong>No loopholes once goals are set.</span>
+            <span><strong>Mindful mode</strong>Pause before opening blocked apps.</span>
+            <span><strong>Progress</strong>Usage and overrides in one view.</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal is-visible" style="--delay: 240ms" aria-label="Pact app preview">
+          <div class="hero-card">
+            <img
+              src="assets/pact-home.png"
+              alt="Pact app home screen showing screen time insights, app limits, and habit progress"
+            />
+          </div>
+          <div class="floating-card">
+            <span>Built to be deleted</span>
+            <p>Use Pact until the habit sticks.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="product">
+        <div class="section-header reveal">
+          <p class="eyebrow">Product</p>
+          <h2>One focused system for better phone habits.</h2>
+          <p>
+            Pact keeps the experience simple: choose the distractions, pick the level of accountability, and review
+            the signals that show whether the habit is improving.
+          </p>
+        </div>
+
+        <div class="features">
+          <article class="feature reveal" style="--delay: 0ms">
+            <div class="feature-number" aria-hidden="true">1</div>
+            <h3>Set real limits</h3>
+            <p>Block the apps that pull attention away and choose how strict the session should be.</p>
+          </article>
+          <article class="feature reveal" style="--delay: 120ms">
+            <div class="feature-number" aria-hidden="true">2</div>
+            <h3>Interrupt the impulse</h3>
+            <p>Mindful Mode adds a deliberate pause before opening a blocked app.</p>
+          </article>
+          <article class="feature reveal" style="--delay: 240ms">
+            <div class="feature-number" aria-hidden="true">3</div>
+            <h3>Track what matters</h3>
+            <p>See usage, check-ins, and overrides without turning progress into homework.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section investor-section" aria-label="Why Pact is different">
+        <img
+          class="investor-image reveal"
+          src="assets/pact-block-apps.png"
+          alt="Pact app strict mode and mindful mode screens with blocked app icons"
+        />
+        <div class="investor-copy reveal" style="--delay: 160ms">
+          <p class="eyebrow">For users and investors</p>
+          <h2>A behavior product, not another dashboard.</h2>
+          <p>
+            The opportunity is not more screen time data. It is helping people act on the moment when they are about
+            to break a promise to themselves. Pact turns that moment into a product experience that is calm, clear,
+            and repeatable.
+          </p>
+          <div class="stat-grid" aria-label="Pact positioning">
+            <div class="stat">
+              <strong>Simple</strong>
+              <span>Fast setup, clear choices.</span>
             </div>
-            <div class="metric">
-              <strong>Mindful mode</strong>
-              <span>Pause, reflect, then choose with intention.</span>
+            <div class="stat">
+              <strong>Firm</strong>
+              <span>Strict mode protects intent.</span>
             </div>
-            <div class="metric">
-              <strong>Progress</strong>
-              <span>Track the habits that matter at a glance.</span>
+            <div class="stat">
+              <strong>Human</strong>
+              <span>Mindful mode avoids shame.</span>
             </div>
           </div>
         </div>
-        <div class="phone-art" aria-label="Pact app preview">
+      </section>
+
+      <section class="section">
+        <div class="quote reveal">
+          <div>
+            <p>Real limits for the apps that steal attention.</p>
+            <span>
+              Pact is designed to feel trustworthy from the first session: restrained interface, obvious controls,
+              and progress feedback that makes healthier behavior visible.
+            </span>
+          </div>
           <img
-            class="promo-image"
-            src="assets/pact-home.png"
-            alt="Pact app home screen showing screen time insights and habit progress"
+            src="assets/pact-activity.png"
+            alt="Pact activity screen showing a progress score, weekly check-ins, and override log"
           />
         </div>
       </section>
 
-      <section class="section" id="how-it-works">
-        <div class="section-header">
-          <h2>Designed for accountability, not guilt.</h2>
-          <p>
-            Pact makes the default path easier: block the apps that pull you off course, review your progress,
-            and remove the tool once the habit is strong.
-          </p>
-        </div>
-        <div class="features">
-          <article class="feature">
-            <div class="feature-icon" aria-hidden="true">01</div>
-            <h3>Choose what gets blocked</h3>
-            <p>Pick the apps and sessions that need boundaries, then decide how firm those boundaries should be.</p>
-          </article>
-          <article class="feature">
-            <div class="feature-icon" aria-hidden="true">02</div>
-            <h3>Reduce impulse opens</h3>
-            <p>Mindful Mode gives you a moment to reconsider. Strict mode helps protect the promise you made.</p>
-          </article>
-          <article class="feature">
-            <div class="feature-icon" aria-hidden="true">03</div>
-            <h3>Watch the habit improve</h3>
-            <p>Simple insights show usage, check-ins, and overrides so progress is visible without extra work.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section proof" aria-label="Pact progress preview">
-        <img
-          class="proof-image"
-          src="assets/pact-activity.png"
-          alt="Pact activity screen showing a progress score and weekly check-ins"
-        />
-        <div class="quote">
-          <p>Real limits for the apps that steal attention.</p>
-          <span>
-            Built for people who want a practical screen time lock: clear setup, visible progress, and a product
-            philosophy simple enough to trust.
-          </span>
-        </div>
-      </section>
-
-      <section class="final-cta" aria-labelledby="download-title">
-        <h2 id="download-title">Start with one app you want back from your day.</h2>
-        <p>
-          Open Pact on the App Store and set your first boundary in minutes. Use it until the habit sticks.
-        </p>
+      <section class="final-cta reveal" aria-labelledby="download-title">
+        <h2 id="download-title">Start with the one app you want back from your day.</h2>
+        <p>Open Pact on the App Store and set your first boundary in minutes.</p>
         <a class="button" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">Open Pact</a>
       </section>
 
       <footer class="footer">
-        <span>© 2026 Pact</span>
-        <a href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">apps.apple.com</a>
+        <span>© 2026 Pact. All rights reserved.</span>
+        <a href="/support/">Support</a>
       </footer>
     </main>
+
+    <script>
+      const animatedItems = document.querySelectorAll(".reveal:not(.is-visible)");
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -12% 0px", threshold: 0.14 }
+        );
+
+        animatedItems.forEach((item) => observer.observe(item));
+      } else {
+        animatedItems.forEach((item) => item.classList.add("is-visible"));
+      }
+    </script>
   </body>
 </html>
