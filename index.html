@@ -544,10 +544,17 @@
       .footer {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         gap: 18px;
         padding: 28px 0 44px;
         color: var(--muted);
         font-size: 0.94rem;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
       }
 
       .reveal {
@@ -712,6 +719,7 @@
 
         .footer {
           flex-direction: column;
+          align-items: flex-start;
         }
       }
     </style>
@@ -857,7 +865,12 @@
 
       <footer class="footer">
         <span>© 2026 Pact. All rights reserved.</span>
-        <a href="/support/">Support</a>
+        <div class="footer-links" aria-label="Company links">
+          <a href="/support/">Support</a>
+          <a href="https://pact-fbaec.web.app/privacy/">Privacy</a>
+          <a href="https://pact-fbaec.web.app/terms/">Terms</a>
+          <a href="mailto:benruoheng@gmail.com">benruoheng@gmail.com</a>
+        </div>
       </footer>
     </main>
 
