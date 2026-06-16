@@ -566,7 +566,7 @@
       .footer {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         gap: 18px;
         padding: 28px 0 44px;
         color: var(--muted);
@@ -577,6 +577,17 @@
         display: flex;
         flex-wrap: wrap;
         gap: 14px;
+      }
+
+      .footer-contact {
+        display: grid;
+        gap: 6px;
+        text-align: right;
+      }
+
+      .footer-contact address {
+        font-style: normal;
+        line-height: 1.45;
       }
 
       .reveal {
@@ -744,6 +755,10 @@
           flex-direction: column;
           align-items: flex-start;
         }
+
+        .footer-contact {
+          text-align: left;
+        }
       }
     </style>
   </head>
@@ -778,8 +793,8 @@
             <a class="button secondary" href="#product">See the product</a>
           </div>
           <div class="proof-row reveal is-visible" style="--delay: 360ms" aria-label="Product highlights">
-            <span><strong>App blocks</strong>Set boundaries for distracting apps.</span>
-            <span><strong>Mindful mode</strong>Pause before opening blocked apps.</span>
+            <span><strong>Strict Mode</strong>Use firmer blocks for distracting apps.</span>
+            <span><strong>Mindful Mode</strong>Override with two taps in emergencies.</span>
             <span><strong>Progress</strong>Review usage signals and overrides.</span>
           </div>
         </div>
@@ -794,7 +809,7 @@
           <div class="visual-caption" aria-label="Pact product principles">
             <div>
               <span>Strict when needed</span>
-              <p>Use stronger limits when you want more structure.</p>
+              <p>Use firmer limits when you want more structure.</p>
             </div>
             <div>
               <span>Simple controls</span>
@@ -809,21 +824,21 @@
           <p class="eyebrow">Product</p>
           <h2>One focused system for better phone habits.</h2>
           <p>
-            Pact keeps setup simple: choose the apps that distract you, decide how much structure you want, and use
-            progress feedback to understand your habits.
+            Pact keeps setup simple: choose the apps that distract you, decide between firmer blocks or mindful
+            pauses, and use progress feedback to understand your habits.
           </p>
         </div>
 
         <div class="features">
           <article class="feature reveal" style="--delay: 0ms">
             <div class="feature-number" aria-hidden="true">1</div>
-            <h3>Block distracting apps</h3>
-            <p>Choose the apps you want to limit and create a clearer boundary before opening them.</p>
+            <h3>Use Strict Mode</h3>
+            <p>Create a firmer block for distracting apps when you want fewer interruptions.</p>
           </article>
           <article class="feature reveal" style="--delay: 120ms">
             <div class="feature-number" aria-hidden="true">2</div>
-            <h3>Pause before opening</h3>
-            <p>Mindful Mode adds a deliberate pause before opening a blocked app.</p>
+            <h3>Use Mindful Mode</h3>
+            <p>Add a deliberate pause before opening a blocked app, with a two-tap override for emergencies.</p>
           </article>
           <article class="feature reveal" style="--delay: 240ms">
             <div class="feature-number" aria-hidden="true">3</div>
@@ -837,8 +852,8 @@
         <div class="compact-note reveal">
           <h2>Clear limits without a complicated dashboard.</h2>
           <p>
-            Pact focuses on a small set of tools for healthier screen time: app boundaries, mindful pauses, and
-            progress feedback that is easy to review.
+            Pact focuses on a small set of tools for healthier screen time: Strict Mode, Mindful Mode, and progress
+            feedback that is easy to review.
           </p>
         </div>
       </section>
@@ -850,12 +865,20 @@
       </section>
 
       <footer class="footer">
-        <span>© 2026 Pact. All rights reserved.</span>
-        <div class="footer-links" aria-label="Company links">
-          <a href="/support/">Support</a>
-          <a href="https://pact-fbaec.web.app/privacy/">Privacy</a>
-          <a href="https://pact-fbaec.web.app/terms/">Terms</a>
-          <a href="mailto:privacy.pactapp@gmail.com">privacy.pactapp@gmail.com</a>
+        <div>
+          <span>© 2026 Pact. All rights reserved.</span>
+          <div class="footer-links" aria-label="Company links">
+            <a href="/support/">Support</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="/terms/">Terms</a>
+          </div>
+        </div>
+        <div class="footer-contact" aria-label="Business contact">
+          <a href="mailto:pact@pactapp.tech">pact@pactapp.tech</a>
+          <address>
+            6D - 7398 Yonge St Unit # 2318<br />
+            Thornhill, ON L4J 8J2
+          </address>
         </div>
       </footer>
     </main>
