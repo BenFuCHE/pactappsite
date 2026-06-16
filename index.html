@@ -147,8 +147,8 @@
         grid-template-columns: minmax(0, 0.92fr) minmax(390px, 0.82fr);
         gap: 64px;
         align-items: center;
-        min-height: calc(100svh - 86px);
-        padding: 34px 0 86px;
+        min-height: min(760px, calc(100svh - 86px));
+        padding: 24px 0 56px;
       }
 
       .eyebrow {
@@ -272,7 +272,7 @@
 
       .hero-visual {
         position: relative;
-        min-height: 620px;
+        min-height: 560px;
         padding: 26px;
         border: 1px solid rgba(255, 255, 255, 0.82);
         border-radius: 32px;
@@ -364,7 +364,7 @@
       }
 
       .section {
-        padding: 84px 0;
+        padding: 54px 0;
       }
 
       .section-header {
@@ -512,10 +512,32 @@
         object-fit: contain;
       }
 
+      .compact-note {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+        gap: 22px;
+        align-items: center;
+        padding: 30px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--card);
+        backdrop-filter: blur(16px);
+      }
+
+      .compact-note h2 {
+        margin-bottom: 0;
+      }
+
+      .compact-note p {
+        margin-bottom: 0;
+        color: var(--muted);
+        line-height: 1.66;
+      }
+
       .final-cta {
         width: min(1160px, calc(100% - 40px));
-        margin: 48px auto 58px;
-        padding: 48px;
+        margin: 34px auto 42px;
+        padding: 40px;
         border-radius: 8px;
         color: #fff;
         background:
@@ -625,7 +647,8 @@
       @media (max-width: 940px) {
         .hero,
         .investor-section,
-        .quote {
+        .quote,
+        .compact-note {
           grid-template-columns: 1fr;
         }
 
@@ -704,7 +727,7 @@
         }
 
         .section {
-          padding: 54px 0;
+          padding: 42px 0;
         }
 
         .investor-copy,
@@ -745,8 +768,8 @@
             Screen time, <span class="accent">locked.</span>
           </h1>
           <p class="lede reveal is-visible" style="--delay: 180ms">
-            Pact helps people turn app limits into lasting habits with strict blocks, mindful pauses, and progress
-            that is easy to understand.
+            Pact is an iOS app for blocking distracting apps, adding mindful pauses, and checking your progress in
+            one simple place.
           </p>
           <div class="hero-actions reveal is-visible" style="--delay: 270ms">
             <a class="button primary" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">
@@ -755,9 +778,9 @@
             <a class="button secondary" href="#product">See the product</a>
           </div>
           <div class="proof-row reveal is-visible" style="--delay: 360ms" aria-label="Product highlights">
-            <span><strong>Strict mode</strong>No loopholes once goals are set.</span>
+            <span><strong>App blocks</strong>Set boundaries for distracting apps.</span>
             <span><strong>Mindful mode</strong>Pause before opening blocked apps.</span>
-            <span><strong>Progress</strong>Usage and overrides in one view.</span>
+            <span><strong>Progress</strong>Review usage signals and overrides.</span>
           </div>
         </div>
 
@@ -771,11 +794,11 @@
           <div class="visual-caption" aria-label="Pact product principles">
             <div>
               <span>Strict when needed</span>
-              <p>No loopholes once goals are set.</p>
+              <p>Use stronger limits when you want more structure.</p>
             </div>
             <div>
-              <span>Built to be deleted</span>
-              <p>Use Pact until the habit sticks.</p>
+              <span>Simple controls</span>
+              <p>Choose apps, set limits, and review progress.</p>
             </div>
           </div>
         </div>
@@ -786,80 +809,43 @@
           <p class="eyebrow">Product</p>
           <h2>One focused system for better phone habits.</h2>
           <p>
-            Pact keeps the experience simple: choose the distractions, pick the level of accountability, and review
-            the signals that show whether the habit is improving.
+            Pact keeps setup simple: choose the apps that distract you, decide how much structure you want, and use
+            progress feedback to understand your habits.
           </p>
         </div>
 
         <div class="features">
           <article class="feature reveal" style="--delay: 0ms">
             <div class="feature-number" aria-hidden="true">1</div>
-            <h3>Set real limits</h3>
-            <p>Block the apps that pull attention away and choose how strict the session should be.</p>
+            <h3>Block distracting apps</h3>
+            <p>Choose the apps you want to limit and create a clearer boundary before opening them.</p>
           </article>
           <article class="feature reveal" style="--delay: 120ms">
             <div class="feature-number" aria-hidden="true">2</div>
-            <h3>Interrupt the impulse</h3>
+            <h3>Pause before opening</h3>
             <p>Mindful Mode adds a deliberate pause before opening a blocked app.</p>
           </article>
           <article class="feature reveal" style="--delay: 240ms">
             <div class="feature-number" aria-hidden="true">3</div>
             <h3>Track what matters</h3>
-            <p>See usage, check-ins, and overrides without turning progress into homework.</p>
+            <p>Review usage, check-ins, and overrides in a straightforward progress view.</p>
           </article>
         </div>
       </section>
 
-      <section class="section investor-section" aria-label="Why Pact is different">
-        <img
-          class="investor-image reveal"
-          src="assets/pact-block-apps.png"
-          alt="Pact app strict mode and mindful mode screens with blocked app icons"
-        />
-        <div class="investor-copy reveal" style="--delay: 160ms">
-          <p class="eyebrow">For users and investors</p>
-          <h2>A behavior product, not another dashboard.</h2>
-          <p>
-            The opportunity is not more screen time data. It is helping people act on the moment when they are about
-            to break a promise to themselves. Pact turns that moment into a product experience that is calm, clear,
-            and repeatable.
-          </p>
-          <div class="stat-grid" aria-label="Pact positioning">
-            <div class="stat">
-              <strong>Simple</strong>
-              <span>Fast setup, clear choices.</span>
-            </div>
-            <div class="stat">
-              <strong>Firm</strong>
-              <span>Strict mode protects intent.</span>
-            </div>
-            <div class="stat">
-              <strong>Human</strong>
-              <span>Mindful mode avoids shame.</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section class="section">
-        <div class="quote reveal">
-          <div>
-            <p>Real limits for the apps that steal attention.</p>
-            <span>
-              Pact is designed to feel trustworthy from the first session: restrained interface, obvious controls,
-              and progress feedback that makes healthier behavior visible.
-            </span>
-          </div>
-          <img
-            src="assets/pact-activity.png"
-            alt="Pact activity screen showing a progress score, weekly check-ins, and override log"
-          />
+        <div class="compact-note reveal">
+          <h2>Clear limits without a complicated dashboard.</h2>
+          <p>
+            Pact focuses on a small set of tools for healthier screen time: app boundaries, mindful pauses, and
+            progress feedback that is easy to review.
+          </p>
         </div>
       </section>
 
       <section class="final-cta reveal" aria-labelledby="download-title">
-        <h2 id="download-title">Start with the one app you want back from your day.</h2>
-        <p>Open Pact on the App Store and set your first boundary in minutes.</p>
+        <h2 id="download-title">Open Pact on the App Store.</h2>
+        <p>Download the iOS app to set app limits, use mindful pauses, and review your progress.</p>
         <a class="button" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">Open Pact</a>
       </section>
 
@@ -869,7 +855,7 @@
           <a href="/support/">Support</a>
           <a href="https://pact-fbaec.web.app/privacy/">Privacy</a>
           <a href="https://pact-fbaec.web.app/terms/">Terms</a>
-          <a href="mailto:benruoheng@gmail.com">benruoheng@gmail.com</a>
+          <a href="mailto:privacy.pactapp@gmail.com">privacy.pactapp@gmail.com</a>
         </div>
       </footer>
     </main>
