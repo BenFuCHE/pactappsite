@@ -520,57 +520,6 @@
         object-fit: contain;
       }
 
-      .compact-note {
-        display: grid;
-        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
-        gap: 22px;
-        align-items: center;
-        padding: 30px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--card);
-        backdrop-filter: blur(16px);
-      }
-
-      .compact-note h2 {
-        margin-bottom: 0;
-      }
-
-      .compact-note p {
-        margin-bottom: 0;
-        color: var(--muted);
-        line-height: 1.66;
-      }
-
-      .final-cta {
-        width: min(1160px, calc(100% - 40px));
-        margin: 34px auto 42px;
-        padding: 40px;
-        border-radius: 8px;
-        color: #fff;
-        background:
-          linear-gradient(120deg, rgba(5, 41, 45, 0.93), rgba(5, 76, 84, 0.82)),
-          url("assets/pact-block-apps.png") center / cover;
-        box-shadow: 0 28px 70px rgba(5, 41, 45, 0.2);
-      }
-
-      .final-cta h2 {
-        max-width: 740px;
-        margin-bottom: 18px;
-      }
-
-      .final-cta p {
-        max-width: 560px;
-        margin-bottom: 28px;
-        color: rgba(255, 255, 255, 0.84);
-        line-height: 1.62;
-      }
-
-      .final-cta .button {
-        color: var(--ink);
-        background: #fff;
-      }
-
       .footer {
         display: flex;
         justify-content: space-between;
@@ -666,8 +615,7 @@
       @media (max-width: 940px) {
         .hero,
         .investor-section,
-        .quote,
-        .compact-note {
+        .quote {
           grid-template-columns: 1fr;
         }
 
@@ -696,8 +644,7 @@
         .nav,
         .hero,
         .section,
-        .footer,
-        .final-cta {
+        .footer {
           width: min(100% - 28px, 1160px);
         }
 
@@ -750,13 +697,8 @@
         }
 
         .investor-copy,
-        .quote,
-        .final-cta {
+        .quote {
           padding: 24px;
-        }
-
-        .final-cta {
-          margin: 30px auto;
         }
 
         .footer {
@@ -858,25 +800,6 @@
             <p>See a simple daily score with screen-time insights and override history.</p>
           </article>
         </div>
-      </section>
-
-      <section class="section">
-        <div class="compact-note reveal">
-          <h2>Clear limits without a complicated dashboard.</h2>
-          <p>
-            Pact focuses on a small set of tools for healthier screen time: app limits, focus sessions, mindful
-            pauses, and progress feedback that is easy to review.
-          </p>
-        </div>
-      </section>
-
-      <section class="final-cta reveal" aria-labelledby="download-title">
-        <h2 id="download-title">Open Pact on the App Store.</h2>
-        <p>
-          Download the iOS app to set app limits, use mindful pauses, and review your progress. Features require a
-          paid auto-renewable subscription.
-        </p>
-        <a class="button" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">Open Pact</a>
       </section>
 
       <footer class="footer">
