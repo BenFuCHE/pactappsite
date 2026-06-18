@@ -280,6 +280,8 @@
 
       .hero-visual {
         position: relative;
+        display: grid;
+        place-items: center;
         min-height: 560px;
         padding: 26px;
         border: 1px solid rgba(255, 255, 255, 0.82);
@@ -335,40 +337,6 @@
         border-radius: 24px;
         object-fit: contain;
         background: #f9fbf8;
-      }
-
-      .visual-caption {
-        position: relative;
-        z-index: 2;
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-        margin-top: 18px;
-      }
-
-      .visual-caption div {
-        padding: 16px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.86);
-        box-shadow: 0 14px 34px rgba(18, 22, 22, 0.08);
-        backdrop-filter: blur(16px);
-      }
-
-      .visual-caption span {
-        color: var(--teal-deep);
-        font-size: 0.8rem;
-        font-weight: 900;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      .visual-caption p {
-        margin: 8px 0 0;
-        color: var(--ink);
-        font-size: 0.98rem;
-        font-weight: 800;
-        line-height: 1.32;
       }
 
       .section {
@@ -688,10 +656,6 @@
           border-radius: 22px;
         }
 
-        .visual-caption {
-          grid-template-columns: 1fr;
-        }
-
         .section {
           padding: 42px 0;
         }
@@ -759,16 +723,6 @@
               src="assets/pact-hero-phone.png"
               alt="Pact app home screen showing screen time insights, app limits, and habit progress"
             />
-          </div>
-          <div class="visual-caption" aria-label="Pact product principles">
-            <div>
-              <span>Strict when needed</span>
-              <p>Use firmer limits when you want more structure.</p>
-            </div>
-            <div>
-              <span>Simple controls</span>
-              <p>Choose apps, set limits, and review progress.</p>
-            </div>
           </div>
         </div>
       </section>
