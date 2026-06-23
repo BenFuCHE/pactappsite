@@ -532,7 +532,8 @@ details p {
   }
 
   .lede {
-    max-width: calc(100vw - 48px);
+    width: min(100%, 27ch);
+    max-width: 27ch;
     font-size: 1.02rem;
     line-height: 1.65;
   }

@@ -164,7 +164,6 @@
         left: 0;
         right: 0;
         z-index: 60;
-        backdrop-filter: saturate(160%) blur(14px);
         background: rgba(252, 250, 245, 0);
         border-bottom: 1px solid transparent;
         opacity: 0;
@@ -176,7 +175,7 @@
         opacity: 1;
         pointer-events: auto;
         transform: translateY(0);
-        background: rgba(252, 250, 245, 0.82);
+        background: rgba(252, 250, 245, 0.94);
         border-color: var(--line);
       }
       .nav-inner {
@@ -250,7 +249,6 @@
           radial-gradient(54% 46% at 86% 4%, rgba(127, 182, 173, 0.28), transparent 72%),
           linear-gradient(180deg, #fdfbf6 0%, #f7f2ea 60%, #fcfaf5 100%);
         background-size: 120% 120%, 120% 120%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-        animation: heroDrift 22s ease-in-out infinite alternate;
       }
       .hero-bg::before {
         content: "";
@@ -264,8 +262,6 @@
         transform: translateX(-50%);
         border-radius: 50%;
         background: radial-gradient(circle, rgba(255, 247, 235, 0.9), rgba(201, 129, 61, 0.12) 45%, transparent 66%);
-        filter: blur(10px);
-        animation: breathe 12s var(--ease) infinite;
       }
       .hero-bg::after {
         content: "";
@@ -277,24 +273,6 @@
           linear-gradient(90deg, rgba(16, 32, 27, 0.026) 1px, transparent 1px);
         background-size: 80px 80px;
         mask-image: radial-gradient(circle at 50% 40%, transparent 30%, rgba(0, 0, 0, 0.5) 80%);
-      }
-      @keyframes breathe {
-        0%, 100% {
-          transform: translateX(-50%) scale(1);
-          opacity: 0.85;
-        }
-        50% {
-          transform: translateX(-50%) scale(1.08);
-          opacity: 1;
-        }
-      }
-      @keyframes heroDrift {
-        from {
-          background-position: 0% 0%, 100% 0%, center, center, center, center;
-        }
-        to {
-          background-position: 7% 0%, 92% 4%, center, center, center, center;
-        }
       }
       .hero-inner {
         position: relative;
@@ -314,7 +292,6 @@
         color: var(--teal-700);
         font-size: 0.82rem;
         font-weight: 600;
-        backdrop-filter: blur(6px);
       }
       .hero .pill .dot {
         width: 7px;
@@ -346,7 +323,6 @@
         display: inline-block;
         opacity: 0;
         transform: translateY(0.28em);
-        filter: blur(10px);
         animation: heroChar 1550ms var(--ease) forwards;
         animation-delay: var(--char-delay, 220ms);
       }
@@ -354,7 +330,6 @@
         0% {
           opacity: 0;
           transform: translateY(0.28em);
-          filter: blur(10px);
         }
         55% {
           opacity: 1;
@@ -362,7 +337,6 @@
         100% {
           opacity: 1;
           transform: translateY(0);
-          filter: blur(0);
         }
       }
       .hero .sub {
@@ -697,6 +671,8 @@
         top: 50%;
         width: min(286px, 48vw);
         aspect-ratio: 900 / 1691;
+        -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 58%, rgba(0, 0, 0, 0.7) 69%, transparent 86%);
+        mask-image: linear-gradient(180deg, #000 0%, #000 58%, rgba(0, 0, 0, 0.7) 69%, transparent 86%);
       }
       .dual-phone .mindful-shot {
         transform: translate(-74%, -50%) rotate(-9deg) rotateY(18deg) rotateX(2deg);
@@ -791,6 +767,7 @@
         margin-top: 22px;
         color: var(--muted-2);
         font-size: 0.88rem;
+        line-height: 1.5;
       }
 
       /* ---------- FOOTER ---------- */
@@ -920,11 +897,16 @@
           margin-left: auto;
           margin-right: auto;
         }
-        .nav-links a:not(.cta) {
+        .nav-links a {
           display: none;
         }
-        .nav-links .cta {
-          display: none;
+        .nav-links .mobile-support {
+          display: inline-flex;
+          padding: 8px 13px;
+          border: 1px solid rgba(14, 157, 170, 0.2);
+          background: rgba(255, 255, 255, 0.72);
+          color: var(--teal-700);
+          font-size: 0.88rem;
         }
         .hero-actions .btn,
         .closing .hero-actions .btn {
@@ -938,7 +920,7 @@
         }
         .hero .trust,
         .closing .trust {
-          max-width: 28ch;
+          max-width: 33ch;
           line-height: 1.5;
         }
         .scrollcue {
@@ -963,16 +945,16 @@
           border-radius: 29px;
         }
         .dual-phone {
-          height: 500px;
+          height: 470px;
         }
         .dual-phone .clean-phone {
           width: min(238px, 52vw);
         }
         .dual-phone .mindful-shot {
-          transform: translate(-73%, -50%) rotate(-7deg);
+          transform: translate(-73%, -54%) rotate(-7deg);
         }
         .dual-phone .strict-shot {
-          transform: translate(-25%, -44%) rotate(8deg);
+          transform: translate(-25%, -49%) rotate(8deg);
         }
         .band {
           border-radius: 28px;
@@ -1038,7 +1020,7 @@
         </a>
         <nav class="nav-links" aria-label="Main navigation">
           <a href="#modes">Product</a>
-          <a href="/support/">Support</a>
+          <a class="mobile-support" href="/support/">Support</a>
           <a class="cta" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">Open App</a>
         </nav>
       </div>
@@ -1174,7 +1156,7 @@
             Download on the App Store
           </a>
         </div>
-        <p class="trust">Pact Pro is billed monthly or yearly with a free trial. Cancel anytime in App Store settings.</p>
+        <p class="trust">Free trial. Cancel anytime in App Store settings.</p>
       </section>
     </main>
 
@@ -1202,8 +1184,23 @@
 
     <script>
       const nav = document.getElementById("nav");
-      const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 12);
-      onScroll();
+      let navIsScrolled = false;
+      let navTicking = false;
+      const updateNav = () => {
+        const next = window.scrollY > 12;
+        if (next !== navIsScrolled) {
+          navIsScrolled = next;
+          nav.classList.toggle("scrolled", next);
+        }
+        navTicking = false;
+      };
+      const onScroll = () => {
+        if (!navTicking) {
+          navTicking = true;
+          requestAnimationFrame(updateNav);
+        }
+      };
+      updateNav();
       window.addEventListener("scroll", onScroll, { passive: true });
 
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1242,17 +1239,37 @@
       }
 
       const deletedScroll = document.getElementById("deleted-scroll");
+      let deletedTop = 0;
+      let deletedDistance = 1;
+      let deletedTicking = false;
+      const measureDeleted = () => {
+        if (!deletedScroll) return;
+        deletedTop = deletedScroll.offsetTop;
+        deletedDistance = Math.max(1, deletedScroll.offsetHeight - window.innerHeight);
+      };
       const updateDeleted = () => {
-        if (!deletedScroll || reduce) return;
-        const rect = deletedScroll.getBoundingClientRect();
-        const distance = Math.max(1, rect.height - window.innerHeight);
-        const raw = -rect.top / distance;
+        if (!deletedScroll || reduce) {
+          deletedTicking = false;
+          return;
+        }
+        const raw = (window.scrollY - deletedTop) / deletedDistance;
         const progress = Math.min(1, Math.max(0, raw));
         deletedScroll.style.setProperty("--deleted", progress.toFixed(3));
+        deletedTicking = false;
       };
+      const onDeletedScroll = () => {
+        if (!deletedTicking) {
+          deletedTicking = true;
+          requestAnimationFrame(updateDeleted);
+        }
+      };
+      measureDeleted();
       updateDeleted();
-      window.addEventListener("scroll", updateDeleted, { passive: true });
-      window.addEventListener("resize", updateDeleted);
+      window.addEventListener("scroll", onDeletedScroll, { passive: true });
+      window.addEventListener("resize", () => {
+        measureDeleted();
+        updateDeleted();
+      });
     </script>
   </body>
 </html>
