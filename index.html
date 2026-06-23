@@ -169,6 +169,7 @@
         opacity: 0;
         pointer-events: none;
         transform: translateY(-16px);
+        will-change: opacity, transform;
         transition: opacity 320ms ease, transform 320ms var(--ease), background 280ms ease, border-color 280ms ease;
       }
       .nav.scrolled {
@@ -235,6 +236,7 @@
         place-items: center;
         text-align: center;
         overflow: hidden;
+        contain: paint;
         padding: 112px 0 116px;
       }
       .hero-bg {
@@ -373,6 +375,12 @@
         animation-delay: var(--delay, 0ms);
       }
       .hero h1.ra.is-visible {
+        animation: none;
+      }
+      body.has-scrolled .hero h1 .char,
+      body.has-scrolled .hero .ra.is-visible {
+        opacity: 1;
+        transform: none;
         animation: none;
       }
       .scrollcue {
@@ -1078,7 +1086,7 @@
           <article class="feature-row">
             <div class="feature-media ra">
               <div class="clean-phone">
-                <img src="assets/pact-dashboard-clean.png" alt="Pact dashboard showing daily screen time, clean day progress, active app limits, and focus session controls" />
+                <img src="assets/pact-dashboard-clean.png" alt="Pact dashboard showing daily screen time, clean day progress, active app limits, and focus session controls" loading="lazy" decoding="async" />
               </div>
             </div>
             <div class="feature-copy ra" style="--delay: 100ms">
@@ -1104,7 +1112,7 @@
             </div>
             <div class="feature-media ra" style="--delay: 100ms">
               <div class="clean-phone">
-                <img src="assets/pact-score-clean.png" alt="Pact Score activity screen showing a daily score of 80 and no overrides this week" />
+                <img src="assets/pact-score-clean.png" alt="Pact Score activity screen showing a daily score of 80 and no overrides this week" loading="lazy" decoding="async" />
               </div>
             </div>
           </article>
@@ -1113,10 +1121,10 @@
             <div class="feature-media ra">
               <div class="dual-phone" aria-label="Mindful Mode and Strict Mode screenshots">
                 <div class="clean-phone dark mindful-shot">
-                  <img src="assets/pact-mindful-clean.png" alt="Mindful Mode screen encouraging the user to go back to work" />
+                  <img src="assets/pact-mindful-clean.png" alt="Mindful Mode screen encouraging the user to go back to work" loading="lazy" decoding="async" />
                 </div>
                 <div class="clean-phone dark strict-shot">
-                  <img src="assets/pact-strict-clean.png" alt="Strict Mode screen with no negotiations messaging" />
+                  <img src="assets/pact-strict-clean.png" alt="Strict Mode screen with no negotiations messaging" loading="lazy" decoding="async" />
                 </div>
               </div>
             </div>
@@ -1188,6 +1196,9 @@
       let navTicking = false;
       const updateNav = () => {
         const next = window.scrollY > 12;
+        if (next) {
+          document.body.classList.add("has-scrolled");
+        }
         if (next !== navIsScrolled) {
           navIsScrolled = next;
           nav.classList.toggle("scrolled", next);
