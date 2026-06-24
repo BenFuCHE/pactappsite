@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Pact blocks the apps that pull you in and holds when you're tempted to give up. Screen time and app blocking for iPhone, built to be deleted when you're ready."
+      content="Pact blocks the apps that pull you in with limits that hold. Built for distraction, doomscrolling, and the habits that are hardest to leave."
     />
     <meta name="apple-itunes-app" content="app-id=6768125792" />
     <meta property="og:title" content="Pact — Reclaim your time." />
     <meta
       property="og:description"
-      content="Block the apps that pull you in, and hold even when you're tempted to give up. Built to be deleted when you're ready."
+      content="Block the apps that pull you in with limits that hold. Built for distraction, doomscrolling, and the habits that are hardest to leave."
     />
     <meta property="og:image" content="assets/pact-home.png" />
     <meta property="og:type" content="website" />
@@ -433,23 +433,45 @@
       /* ---------- STATEMENT ---------- */
       .statement {
         text-align: center;
-        padding: var(--pad) 0;
+        padding: clamp(72px, 8vw, 108px) 0;
       }
       .statement .eyebrow {
         justify-content: center;
         margin-bottom: 28px;
       }
       .statement h2 {
-        max-width: 17ch;
+        max-width: 14ch;
         margin: 0 auto;
         font-size: clamp(2.5rem, 5.6vw, 4.6rem);
         line-height: 1.04;
       }
       .statement .after {
-        margin: 30px auto 0;
-        max-width: min(88vw, 900px);
+        margin: 24px auto 0;
+        max-width: 54ch;
         color: var(--muted);
         font-size: clamp(1.05rem, 1.45vw, 1.22rem);
+      }
+      .statement .chips {
+        margin-top: 30px;
+      }
+      .statement .difference {
+        max-width: 62ch;
+        margin: 34px auto 0;
+        padding-top: 28px;
+        border-top: 1px solid rgba(16, 32, 27, 0.11);
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      .statement .difference strong {
+        color: var(--ink);
+      }
+      .statement .scope-note {
+        max-width: 68ch;
+        margin: 18px auto 0;
+        color: var(--muted-2);
+        font-size: 0.82rem;
+        line-height: 1.55;
       }
 
       /* ---------- SCROLL-READ DELETED ---------- */
@@ -699,36 +721,6 @@
         transform: translate(-22%, -45%) rotate(9deg) rotateY(-18deg) rotateX(2deg);
       }
 
-      /* ---------- COVERAGE BAND ---------- */
-      .band {
-        position: relative;
-        margin: 0 auto;
-        width: min(1200px, calc(100% - 28px));
-        border-radius: 36px;
-        padding: var(--pad) 24px;
-        text-align: center;
-        background:
-          radial-gradient(80% 90% at 50% 0%, rgba(127, 182, 173, 0.22), transparent 60%),
-          linear-gradient(180deg, #f3eee4 0%, #efeae0 100%);
-        background-color: #f1ece2;
-        border: 1px solid var(--line);
-        overflow: hidden;
-      }
-      .band .eyebrow {
-        justify-content: center;
-        margin-bottom: 24px;
-      }
-      .band h2 {
-        max-width: 18ch;
-        margin: 0 auto;
-        font-size: clamp(2.2rem, 4.4vw, 3.6rem);
-      }
-      .band p {
-        max-width: 46ch;
-        margin: 24px auto 0;
-        color: var(--muted);
-        font-size: clamp(1.06rem, 1.5vw, 1.2rem);
-      }
       .chips {
         display: flex;
         flex-wrap: wrap;
@@ -761,7 +753,6 @@
       .chip.hot svg {
         color: var(--gold-deep);
       }
-
       /* ---------- CLOSING ---------- */
       .closing {
         text-align: center;
@@ -907,8 +898,8 @@
           display: none;
         }
         .hero .sub {
-          max-width: 27ch;
-          font-size: 1.08rem;
+          max-width: 24ch;
+          font-size: 1rem;
         }
         .hero-actions {
           width: min(100%, 354px);
@@ -998,9 +989,6 @@
         .dual-phone .strict-shot {
           transform: translate(-25%, -49%) rotate(8deg);
         }
-        .band {
-          border-radius: 28px;
-        }
         .deleted-pin {
           padding: 82px 18px;
         }
@@ -1073,19 +1061,19 @@
       <section class="hero">
         <div class="hero-bg" aria-hidden="true"></div>
         <div class="wrap hero-inner">
-          <span class="pill ra is-visible"><span class="dot"></span>Screen time &amp; app blocking for iPhone</span>
+          <span class="pill ra is-visible"><span class="dot"></span>Limits that hold</span>
           <h1 class="ra is-visible" style="--delay: 90ms" aria-label="Reclaim your time.">
             <span class="hero-line">Reclaim</span><span class="hero-accent">your time.</span>
           </h1>
           <p class="sub ra is-visible" style="--delay: 180ms">
-            Block the apps that pull you in, and hold when you're tempted to give up.
+            Block the apps that pull you in, with limits that hold. For distraction, doomscrolling, and the habits hardest to leave.
           </p>
           <div class="hero-actions ra is-visible" style="--delay: 260ms">
             <a class="btn primary" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">
               <svg class="apple-mark" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.2-39.2.6-75.3 22.8-95.4 58C-17 269.5 13.3 374.9 53 432.4c19.4 28 42.5 59.5 72.8 58.4 29.2-1.2 40.2-18.9 75.4-18.9 35.1 0 45.1 18.9 76.1 18.3 31.4-.6 51.3-28.5 70.5-56.6 22.3-32.6 31.5-64.2 31.9-65.8-.7-.3-61.3-23.5-61-99.1zM260.7 101.9c16.1-19.5 27-46.6 24-73.5-23.2.9-51.2 15.4-67.9 34.9-15 17.3-28.1 44.9-24.5 71.3 25.8 2 52.2-13.1 68.4-32.7z"/></svg>
               Download on the App Store
             </a>
-            <a class="btn ghost" href="#struggle">See how it works</a>
+            <a class="btn ghost" href="#why-pact">See how it works</a>
           </div>
           <p class="trust ra is-visible" style="--delay: 320ms">Free to download. Pact Pro starts with a free trial.</p>
         </div>
@@ -1093,13 +1081,6 @@
           <span>Scroll</span>
           <span class="line"></span>
         </div>
-      </section>
-
-      <!-- STATEMENT -->
-      <section class="wrap statement ra" id="struggle">
-        <span class="eyebrow">The struggle</span>
-        <h2>You reach for one thing. An hour later, it still has you.</h2>
-        <p class="after">Pact is for the moment you decide you're done with that.</p>
       </section>
 
       <!-- DELETED SCROLL REVEAL -->
@@ -1112,6 +1093,21 @@
             <div class="deleted-progress" aria-hidden="true"><span></span></div>
           </div>
         </div>
+      </section>
+
+      <!-- POSITIONING -->
+      <section class="wrap statement ra" id="why-pact">
+        <span class="eyebrow">When “Ignore” is too easy</span>
+        <h2>Give your limits more weight.</h2>
+        <p class="after">Pact helps the choice you made earlier hold up when distraction takes over.</p>
+        <div class="chips">
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9.5 4.5A3.5 3.5 0 0 0 6 8v1a3 3 0 0 0 0 6v1a3.5 3.5 0 0 0 3.5 3.5c1 0 1.9-.4 2.5-1.1.6.7 1.5 1.1 2.5 1.1A3.5 3.5 0 0 0 18 16v-1a3 3 0 0 0 0-6V8a3.5 3.5 0 0 0-6-2.5A3.5 3.5 0 0 0 9.5 4.5Z"/><path d="M12 5.5v12.9"/></svg>ADHD &amp; focus</span>
+          <span class="chip hot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h4l2 6 4-14 2 8h6"/></svg>Sports-betting apps</span>
+          <span class="chip hot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="8.5" cy="8.5" r="1.1"/><circle cx="12" cy="12" r="1.1"/><circle cx="15.5" cy="15.5" r="1.1"/></svg>Gambling apps</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Doomscrolling</span>
+        </div>
+        <p class="difference"><strong>Ordinary limits warn you.</strong> Pact adds a pause or a harder boundary.</p>
+        <p class="scope-note">Pact is an app-blocking tool, not medical care or treatment.</p>
       </section>
 
       <!-- PRODUCT FLOW -->
@@ -1172,19 +1168,6 @@
               </span>
             </div>
           </article>
-        </div>
-      </section>
-
-      <!-- COVERAGE BAND -->
-      <section class="band ra">
-        <span class="eyebrow">Built to break real habits</span>
-        <h2>Even the ones other apps ignore.</h2>
-        <p>Doomscrolling, endless feeds, and the hardest to quit of all — gambling and sports betting.</p>
-        <div class="chips">
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Doomscrolling</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg>Endless feeds</span>
-          <span class="chip hot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="8.5" cy="8.5" r="1.1"/><circle cx="12" cy="12" r="1.1"/><circle cx="15.5" cy="15.5" r="1.1"/></svg>Gambling</span>
-          <span class="chip hot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h4l2 6 4-14 2 8h6"/></svg>Sports betting</span>
         </div>
       </section>
 
