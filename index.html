@@ -17,6 +17,8 @@
     <meta property="og:type" content="website" />
     <title>Pact — Reclaim your time.</title>
 
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -753,6 +755,123 @@
       .chip.hot svg {
         color: var(--gold-deep);
       }
+
+      /* ---------- PRICING ---------- */
+      .pricing {
+        padding: var(--pad) 0;
+        text-align: center;
+      }
+      .pricing .eyebrow {
+        justify-content: center;
+        margin-bottom: 22px;
+      }
+      .pricing h2 {
+        max-width: 14ch;
+        margin: 0 auto;
+        font-size: clamp(2.5rem, 5vw, 4.4rem);
+      }
+      .pricing .lead {
+        max-width: 46ch;
+        margin: 20px auto 0;
+        color: var(--muted);
+        font-size: clamp(1.04rem, 1.4vw, 1.18rem);
+      }
+      .price-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        width: min(820px, 100%);
+        margin: 42px auto 0;
+        text-align: left;
+      }
+      .price-card {
+        position: relative;
+        display: grid;
+        align-content: start;
+        min-height: 390px;
+        padding: 34px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.72);
+        overflow: hidden;
+      }
+      .price-card.featured {
+        border-color: rgba(14, 157, 170, 0.38);
+        background:
+          radial-gradient(90% 70% at 0% 0%, rgba(14, 157, 170, 0.13), transparent 70%),
+          rgba(255, 255, 255, 0.88);
+        box-shadow: 0 24px 54px -38px rgba(7, 90, 100, 0.55);
+      }
+      .price-save {
+        position: absolute;
+        top: 24px;
+        right: -42px;
+        width: 168px;
+        padding: 8px 0;
+        transform: rotate(45deg);
+        text-align: center;
+        background: var(--teal-deep);
+        color: #fff;
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .price-name {
+        color: var(--muted);
+        font-size: 0.86rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .price {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        margin-top: 22px;
+        font-family: var(--display);
+        line-height: 1;
+      }
+      .price strong {
+        font-size: clamp(3rem, 5vw, 4.2rem);
+        font-weight: 600;
+      }
+      .price span {
+        color: var(--muted-2);
+        font-family: var(--sans);
+        font-size: 0.96rem;
+      }
+      .price-equivalent {
+        min-height: 25px;
+        margin-top: 10px;
+        color: var(--teal-700);
+        font-size: 0.92rem;
+        font-weight: 600;
+      }
+      .price-trial {
+        margin: 25px 0 0;
+        padding-top: 22px;
+        border-top: 1px solid var(--line);
+        color: var(--ink);
+        font-size: 1.02rem;
+        font-weight: 600;
+      }
+      .price-detail {
+        margin: 8px 0 26px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+      .price-card .btn {
+        width: 100%;
+        margin-top: auto;
+      }
+      .pricing-note {
+        margin: 18px auto 0;
+        color: var(--muted-2);
+        font-size: 0.8rem;
+      }
+
       /* ---------- CLOSING ---------- */
       .closing {
         text-align: center;
@@ -936,6 +1055,9 @@
           font-size: 0.7rem;
           white-space: nowrap;
         }
+        .nav-links .product-link {
+          display: none;
+        }
         .nav-links .cta {
           padding: 7px 9px;
           background: var(--ink);
@@ -961,6 +1083,14 @@
         }
         .product-flow {
           padding: 70px 0;
+        }
+        .price-grid {
+          grid-template-columns: 1fr;
+          width: min(100%, 380px);
+        }
+        .price-card {
+          min-height: 350px;
+          padding: 30px 26px;
         }
         .feature-row,
         .feature-row.flip {
@@ -1049,7 +1179,8 @@
           <span>Pact</span>
         </a>
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="#modes">Product</a>
+          <a class="product-link" href="#modes">Product</a>
+          <a href="#pricing">Pricing</a>
           <a class="mobile-support" href="/support/">Support</a>
           <a class="cta" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">Open App</a>
         </nav>
@@ -1169,6 +1300,33 @@
             </div>
           </article>
         </div>
+      </section>
+
+      <!-- PRICING -->
+      <section class="wrap pricing ra" id="pricing">
+        <span class="eyebrow">Pact Pro</span>
+        <h2>Choose your pace.</h2>
+        <p class="lead">The same Pact Pro features in both plans. Start with a free trial and cancel anytime in App Store settings.</p>
+        <div class="price-grid">
+          <article class="price-card featured">
+            <span class="price-save">Save 37%</span>
+            <span class="price-name">Yearly</span>
+            <div class="price"><strong>$59.99</strong><span>USD / year</span></div>
+            <div class="price-equivalent">$5.00 per month, billed yearly</div>
+            <p class="price-trial">7 days free</p>
+            <p class="price-detail">Then $59.99 per year unless cancelled.</p>
+            <a class="btn primary" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">Try Pact free</a>
+          </article>
+          <article class="price-card">
+            <span class="price-name">Monthly</span>
+            <div class="price"><strong>$7.99</strong><span>USD / month</span></div>
+            <div class="price-equivalent">&nbsp;</div>
+            <p class="price-trial">3 days free</p>
+            <p class="price-detail">Then $7.99 per month unless cancelled.</p>
+            <a class="btn ghost" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">Try Pact free</a>
+          </article>
+        </div>
+        <p class="pricing-note">U.S. pricing shown. Free trials are subject to App Store eligibility; prices and taxes may vary by region.</p>
       </section>
 
       <!-- CLOSING -->
