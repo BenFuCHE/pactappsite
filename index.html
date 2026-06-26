@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Pact blocks the apps that pull you in with limits that hold. Built for distraction, doomscrolling, and the habits that are hardest to leave."
+      content="Pact blocks gambling, betting, sportsbook, social, and scrolling apps with limits that hold when willpower runs out. Built to be deleted."
     />
     <meta name="apple-itunes-app" content="app-id=6768125792" />
-    <meta property="og:title" content="Pact — Reclaim your time." />
+    <meta property="og:title" content="Pact — Block betting apps with limits that hold." />
     <meta
       property="og:description"
-      content="Block the apps that pull you in with limits that hold. Built for distraction, doomscrolling, and the habits that are hardest to leave."
+      content="Block gambling, betting, sportsbook, social, and scrolling apps with real friction. Pact is built to be deleted."
     />
     <meta property="og:image" content="assets/pact-home.png" />
     <meta property="og:type" content="website" />
-    <title>Pact — Reclaim your time.</title>
+    <title>Pact — Block betting apps with limits that hold.</title>
 
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
@@ -230,7 +230,7 @@
         color: #fff;
       }
 
-      /* ---------- HERO (atmospheric, no product) ---------- */
+      /* ---------- HERO ---------- */
       .hero {
         position: relative;
         min-height: 100svh;
@@ -292,11 +292,11 @@
       .hero h1 {
         max-width: 13ch;
         margin: 0 auto;
-        font-family: var(--sans);
-        font-size: clamp(4rem, 8.2vw, 8.35rem);
-        font-weight: 800;
-        line-height: 0.9;
-        letter-spacing: -0.055em;
+        font-family: var(--display);
+        font-size: clamp(4.1rem, 8vw, 7.9rem);
+        font-weight: 600;
+        line-height: 0.94;
+        letter-spacing: 0;
       }
       .hero h1 .hero-accent {
         display: block;
@@ -1002,7 +1002,12 @@
           max-width: 100%;
           margin: 0 auto;
           font-size: clamp(2.28rem, 9.8vw, 2.68rem);
-          letter-spacing: -0.05em;
+          letter-spacing: 0;
+        }
+        .hero h1 .char {
+          opacity: 1;
+          transform: none;
+          animation: none;
         }
         .hero h1 .hero-accent {
           display: block;
@@ -1017,7 +1022,7 @@
           display: none;
         }
         .hero .sub {
-          max-width: 24ch;
+          max-width: 31ch;
           font-size: 1rem;
         }
         .hero-actions {
@@ -1192,12 +1197,12 @@
       <section class="hero">
         <div class="hero-bg" aria-hidden="true"></div>
         <div class="wrap hero-inner">
-          <span class="pill ra is-visible"><span class="dot"></span>Limits that hold</span>
-          <h1 class="ra is-visible" style="--delay: 90ms" aria-label="Reclaim your time.">
-            <span class="hero-line">Reclaim</span><span class="hero-accent">your time.</span>
+          <span class="pill ra is-visible"><span class="dot"></span>Gambling, betting, and focus blocks</span>
+          <h1 class="ra is-visible" style="--delay: 90ms" aria-label="Block betting apps. Keep your pact.">
+            <span class="hero-line">Block betting apps.</span><span class="hero-accent">Keep your pact.</span>
           </h1>
           <p class="sub ra is-visible" style="--delay: 180ms">
-            Block the apps that pull you in, with limits that hold. For distraction, doomscrolling, and the habits hardest to leave.
+            Block betting and gambling apps — and anything else you can't put down.
           </p>
           <div class="hero-actions ra is-visible" style="--delay: 260ms">
             <a class="btn primary" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">
@@ -1220,7 +1225,7 @@
           <div class="deleted-copy">
             <span class="eyebrow">The point</span>
             <h2 id="deleted-title">Built to be deleted.</h2>
-            <p>Most apps want you hooked. Pact wants you free. Use it until you do not need it, then let it go.</p>
+            <p>Most apps are built to keep you coming back. Pact is built for the day you do not need it anymore.</p>
             <div class="deleted-progress" aria-hidden="true"><span></span></div>
           </div>
         </div>
@@ -1228,17 +1233,17 @@
 
       <!-- POSITIONING -->
       <section class="wrap statement ra" id="why-pact">
-        <span class="eyebrow">When “Ignore” is too easy</span>
-        <h2>Give your limits more weight.</h2>
-        <p class="after">For people who find a distraction difficult to interrupt once it starts.</p>
+        <span class="eyebrow">When ignore is too easy</span>
+        <h2>Block the apps that cost you most.</h2>
+        <p class="after">Sportsbooks, casinos, betting apps, social feeds, and any habit that gets harder to stop once it starts.</p>
         <div class="chips">
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9.5 4.5A3.5 3.5 0 0 0 6 8v1a3 3 0 0 0 0 6v1a3.5 3.5 0 0 0 3.5 3.5c1 0 1.9-.4 2.5-1.1.6.7 1.5 1.1 2.5 1.1A3.5 3.5 0 0 0 18 16v-1a3 3 0 0 0 0-6V8a3.5 3.5 0 0 0-6-2.5A3.5 3.5 0 0 0 9.5 4.5Z"/><path d="M12 5.5v12.9"/></svg>ADHD &amp; focus</span>
-          <span class="chip hot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h4l2 6 4-14 2 8h6"/></svg>Sports-betting apps</span>
-          <span class="chip hot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="8.5" cy="8.5" r="1.1"/><circle cx="12" cy="12" r="1.1"/><circle cx="15.5" cy="15.5" r="1.1"/></svg>Gambling apps</span>
+          <span class="chip hot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h4l2 6 4-14 2 8h6"/></svg>Sportsbooks</span>
+          <span class="chip hot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="8.5" cy="8.5" r="1.1"/><circle cx="12" cy="12" r="1.1"/><circle cx="15.5" cy="15.5" r="1.1"/></svg>Casino &amp; betting apps</span>
           <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Doomscrolling</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9.5 4.5A3.5 3.5 0 0 0 6 8v1a3 3 0 0 0 0 6v1a3.5 3.5 0 0 0 3.5 3.5c1 0 1.9-.4 2.5-1.1.6.7 1.5 1.1 2.5 1.1A3.5 3.5 0 0 0 18 16v-1a3 3 0 0 0 0-6V8a3.5 3.5 0 0 0-6-2.5A3.5 3.5 0 0 0 9.5 4.5Z"/><path d="M12 5.5v12.9"/></svg>ADHD &amp; focus</span>
         </div>
-        <p class="difference"><strong>Ordinary limits warn you.</strong> Pact adds a pause or a harder boundary.</p>
-        <p class="scope-note">Pact is an app-blocking tool, not medical care or treatment.</p>
+        <p class="difference"><strong>Ordinary limits warn you.</strong> Pact adds a mindful pause or a strict lock that stays put when a weak moment hits.</p>
+        <p class="scope-note">Pact supports healthier digital habits. It is not medical treatment, therapy, or a substitute for professional help. If gambling feels out of control in the US, call or text the National Problem Gambling Helpline at 1-800-522-4700.</p>
       </section>
 
       <!-- PRODUCT FLOW -->
@@ -1251,12 +1256,12 @@
               </div>
             </div>
             <div class="feature-copy ra" style="--delay: 100ms">
-              <span class="eyebrow">Dashboard</span>
-              <h2>See the day before it disappears.</h2>
-              <p>Your dashboard keeps the big signals close: screen time, clean days, active limits, and the next focus session.</p>
+              <span class="eyebrow">App blocking</span>
+              <h2>Lock the apps that pull hardest.</h2>
+              <p>Pick the apps that cost you most and set a daily limit. Use a short limit for social media, or a zero-minute block for gambling, betting, and sportsbook apps.</p>
               <span class="feature-pill">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19V5M4 19h16M8 15l3-3 3 2 5-7"/></svg>
-                Calm, glanceable feedback
+                Daily limit or full block
               </span>
             </div>
           </article>
@@ -1264,11 +1269,11 @@
           <article class="feature-row flip">
             <div class="feature-copy ra">
               <span class="eyebrow">Pact Score</span>
-              <h2>A score, not a streak.</h2>
-              <p>One simple number shows how dialed in you are today. No shame, no endless analytics, just enough feedback to stay honest.</p>
+              <h2>Momentum without streak guilt.</h2>
+              <p>One number reflects the days you stayed committed. Every morning starts fresh, so one rough day does not turn into a reason to give up.</p>
               <span class="feature-pill">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M5 9h14M7 16h10"/></svg>
-                Every morning starts fresh
+                Your day starts fresh
               </span>
             </div>
             <div class="feature-media ra" style="--delay: 100ms">
@@ -1291,8 +1296,8 @@
             </div>
             <div class="feature-copy ra" style="--delay: 100ms">
               <span class="eyebrow">Mindful or Strict</span>
-              <h2>Choose the kind of friction you need.</h2>
-              <p>Mindful Mode gives you a pause and a way back. Strict Mode removes the negotiation entirely when you know you need a harder boundary.</p>
+              <h2>Choose the friction you need today.</h2>
+              <p>Mindful Mode pauses you with your goal and a moment to reconsider. Strict Mode removes the negotiation entirely for the days you would rather not be able to talk yourself into it.</p>
               <span class="feature-pill">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
                 Two modes, one goal
@@ -1331,8 +1336,8 @@
 
       <!-- CLOSING -->
       <section class="wrap closing ra">
-        <h2>Take back the hours.</h2>
-        <p class="lead">Start free. Delete it when you're ready.</p>
+        <h2>Make your pact today.</h2>
+        <p class="lead">Start free. Delete it the day you do not need it.</p>
         <div class="hero-actions">
           <a class="btn primary" href="https://apps.apple.com/ca/app/pact-screen-time-lock/id6768125792">
             <svg class="apple-mark" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.2-39.2.6-75.3 22.8-95.4 58C-17 269.5 13.3 374.9 53 432.4c19.4 28 42.5 59.5 72.8 58.4 29.2-1.2 40.2-18.9 75.4-18.9 35.1 0 45.1 18.9 76.1 18.3 31.4-.6 51.3-28.5 70.5-56.6 22.3-32.6 31.5-64.2 31.9-65.8-.7-.3-61.3-23.5-61-99.1zM260.7 101.9c16.1-19.5 27-46.6 24-73.5-23.2.9-51.2 15.4-67.9 34.9-15 17.3-28.1 44.9-24.5 71.3 25.8 2 52.2-13.1 68.4-32.7z"/></svg>
