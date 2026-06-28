@@ -33,15 +33,7 @@ body {
   font-size: 17px;
   line-height: 1.6;
   overflow-x: hidden;
-  background:
-    linear-gradient(118deg, transparent 0 16%, rgba(14, 157, 170, 0.12) 16% 27%, transparent 27% 100%),
-    linear-gradient(242deg, transparent 0 15%, rgba(201, 129, 61, 0.13) 15% 26%, transparent 26% 100%),
-    radial-gradient(62% 48% at 14% 4%, rgba(14, 157, 170, 0.2), transparent 72%),
-    radial-gradient(54% 46% at 90% 6%, rgba(127, 182, 173, 0.22), transparent 72%),
-    radial-gradient(72% 54% at 50% 110%, rgba(201, 129, 61, 0.18), transparent 70%),
-    linear-gradient(180deg, #fdfbf6 0%, #f7f2ea 58%, #fcfaf5 100%);
-  background-size: 120% 120%, 120% 120%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-  background-position: 8% 4%, 92% 5%, 0 0, 0 0, 0 0, 0 0;
+  background: linear-gradient(180deg, #fdfbf6 0%, #f7f2ea 58%, #fcfaf5 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {
